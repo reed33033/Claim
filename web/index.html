@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+<meta charset="UTF-8">
+<title>CodePen - Slide Sign In/Sign Up form</title>
+
+
+	<link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+
+<div class="container right-panel-active">
+
+	<!-- Sign Up -->
+	<div class="container__form container--signup">
+		<form action="RegisterServlet" class="form" id="form1" method="post" enctype="multipart/form-data">
+			<h2 class="form__title">注册</h2>
+			<input name="username" type="text" placeholder="用户名" class="input" />
+			<input type="password" name="password" placeholder="密码" class="input" />
+			<input name="headShot" id="headShot" type="file" value="上传照片">
+			<button class="btn" type="submit">注册</button>
+		</form>
+	</div>
+
+	<!-- Sign In -->
+	<div class="container__form container--signin" >
+		<form action="LoginServlet" method="get" class="form" id="form2">
+			<h2 class="form__title">登录</h2>
+			<input type="text" name="username" placeholder="用户名" class="input" />
+			<input type="password" placeholder="密码" name="password" class="input" />
+			<button class="btn" type="submit">登录</button>
+		</form>
+	</div>
+
+	<!-- Overlay -->
+	<div class="container__overlay">
+		<div class="overlay">
+			<div class="overlay__panel overlay--left">
+				<button class="btn" id="signIn">注册</button>
+			</div>
+			<div class="overlay__panel overlay--right">
+				<button class="btn" id="signUp">登录</button>
+			</div>
+		</div>
+	</div>
+
+
+</div>
+<script>
+	const signInBtn = document.getElementById("signIn");
+	const signUpBtn = document.getElementById("signUp");
+	const container = document.querySelector(".container");
+	signInBtn.addEventListener("click", () => {
+		container.classList.remove("right-panel-active");
+	});
+	signUpBtn.addEventListener("click", () => {
+		container.classList.add("right-panel-active");
+	});
+</script>
+
+<!--	<script src="js/script.js"></script>-->
+
+</body>
+</html>
